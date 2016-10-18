@@ -1,27 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="me.dispatch.write-external-storage-permissions"
+    id="routesdirect.dispatch.custom-cordova-permissions"
     version="0.1">
-  <name>Cordova Crosswalk Permissions</name>
-  <license>Apache 2.0 License</license>
-  <author>Dispatch</author>
-  <description>
-    Request the necessary crosswalk permissions on Android for a Cordova project.
-  </description>
+    <name>Cordova Routes Direct Permissions</name>
+    <license>Apache 2.0 License</license>
+    <author>Dispatch</author>
+    <description>
+        Request the necessary crosswalk permissions on Android for a Cordova project.
+    </description>
 
-  <info>
-    This plugin replaces the need for adding permisions to the AndroidManifest.xml
-    file when using Crosswalk with Cordova.
-  </info>
+    <info>
+        This plugin is a hacky way to add whatever we need to add to AndroidManifest.xml,
+        config.xml or info.plist (iOS).
+    </info>
 
-  <platform name="android">
-    <config-file target="AndroidManifest.xml" parent="/manifest">
-      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-      <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-      <uses-permission android:name="android.permission.READ_MEDIA_STORAGE" />
-      <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE" />
-      <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
-    </config-file>
-  </platform>
+    <platform name="android">
+        <config-file target="AndroidManifest.xml" parent="/manifest" mode="merge">
+            <application android:debuggable="true" /> 
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.READ_MEDIA_STORAGE" />
+            <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE" />
+            <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
+        </config-file>
+    </platform>
+    
+    <platform name="ios">
+        <preference name="CAMERA_USAGE_DESCRIPTION" default=" " />
+        <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
+            <string>
+                Routes Direct needs access to your phone camera if you take photos or scan a barcode.
+            </string>
+        </config-file>
+
+        <preference name="PHOTOLIBRARY_USAGE_DESCRIPTION" default=" " />
+        <config-file target="*-Info.plist" parent="NSPhotoLibraryUsageDescription">
+            <string>
+                Routes Direct may need to access your photo library for offline storage or to 
+                access photos you may need to upload to the application.            
+            </string>
+        </config-file>
+    </platform>
 </plugin>
