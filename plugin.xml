@@ -25,17 +25,12 @@
     <platform name="ios">
         <preference name="CAMERA_USAGE_DESCRIPTION" default=" " />
         <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
-            <string>
-                Routes Direct needs access to your phone camera if you take photos or scan a barcode.
-            </string>
+            <string>Routes Direct needs access to your phone camera if you take photos or scan a barcode.</string>
         </config-file>
 
         <preference name="PHOTOLIBRARY_USAGE_DESCRIPTION" default=" " />
         <config-file target="*-Info.plist" parent="NSPhotoLibraryUsageDescription">
-            <string>
-                Routes Direct may need to access your photo library for offline storage or to 
-                access photos you may need to upload to the application.            
-            </string>
+            <string>Routes Direct may need to access your photo library for offline storage or to access photos you may need to upload to the application.</string>
         </config-file>
     </platform>
 </plugin>
