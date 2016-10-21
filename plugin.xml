@@ -7,7 +7,7 @@
     <license>Apache 2.0 License</license>
     <author>Dispatch</author>
     <description>
-        Request the necessary crosswalk permissions on Android for a Cordova project.
+        Set permissions on Android/iOS for a Cordova project.
     </description>
 
     <info>
