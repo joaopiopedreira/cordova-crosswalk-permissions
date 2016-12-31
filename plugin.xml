@@ -32,5 +32,16 @@
         <config-file target="*-Info.plist" parent="NSPhotoLibraryUsageDescription">
             <string>Routes Direct may need to access your photo library for offline storage or to access photos you may need to upload to the application.</string>
         </config-file>
+
+        <preference name="NSLocationWhenInUseUsageDescription" default=" " />
+        <config-file target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
+            <string>Required to access location data. Routes Direct would like to access your location for GPS tracking purposes. </string>
+        </config-file>
+
+        <preference name="NSMotionUsageDescription" default=" " />
+        <config-file target="*-Info.plist" parent="NSMotionUsageDescription">
+            <string>Required to access activity data. Routes Direct would like to access your motion usage to more accurately display your position.</string>
+        </config-file>
+
     </platform>
 </plugin>
